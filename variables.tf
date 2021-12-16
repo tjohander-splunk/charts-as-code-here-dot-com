@@ -8,6 +8,6 @@ variable "realm" {
 
 variable "sfx_prefix" {
   type        = string
-  description = "Detector Prefix"
+  description = "Prefix for Various Resources"
   default     = "[Splunk]"
 }

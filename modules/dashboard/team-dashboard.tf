@@ -19,6 +19,8 @@ resource "signalfx_text_chart" "title0" {
   EOF
 }
 
+#TODO: Add in Markdown text charts on top of each of these for a little blurb (mailto: tel:, etc)
+#TODO Event feed on Dashboard
 resource "signalfx_time_chart" "latencybydatacenter0" {
   name         = "Latency By Datacenter"
   description  = "Average Request Latency By Datacenter"
