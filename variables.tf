@@ -11,3 +11,8 @@ variable "sfx_prefix" {
   description = "Prefix for Various Resources"
   default     = "[Splunk]"
 }
+
+variable "opsgenie_api_key" {
+  type = string
+  default = "API Key for OpsGenie"
+}

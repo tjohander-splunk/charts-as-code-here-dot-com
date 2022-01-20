@@ -27,7 +27,7 @@ resource "signalfx_time_chart" "latencybydatacenter0" {
   plot_type    = "LineChart"
   program_text = <<-EOF
     A = data('demo.trans.latency', filter=filter('demo_datacenter', 'Tokyo'), rollup='average').mean(by=['demo_datacenter']).publish(label='A')
-    B = data('demo.trans.latency', filter=filter('demo_datacenter', 'Paris')).mean(by=['demo_datacenter']).publish(label='B')
+    B = data('demo.trans.latency', filter=filter('demo_datacenter', 'Paris'), rollup='average').mean(by=['demo_datacenter']).publish(label='B')
   EOF
 
   axis_left {
@@ -85,6 +85,34 @@ resource "signalfx_time_chart" "hostsbydatacenter0" {
   on_chart_legend_dimension = "demo_datacenter"
 }
 
+resource "signalfx_heatmap_chart" "latencyheatmap0" {
+  name = "Latency By Datacenter Heatmap"
+
+  program_text = <<-EOF
+    data('demo.trans.latency', filter=filter('demo_datacenter', 'Tokyo')).publish(label='A')
+  EOF
+
+  description = "Very cool Heatmap"
+  disable_sampling = false
+  hide_timestamp   = true
+  timezone         = "America/Chicago"
+
+  # You can only use one of color_range or color_scale!
+  color_scale {
+    gte   = 250
+    color = "red"
+  }
+  color_scale {
+    lt    = 250 # This ensures terraform recognizes that we cover the range 95-99
+    gte   = 220
+    color = "yellow"
+  }
+  color_scale {
+    lt    = 220
+    color = "green"
+  }
+}
+
 resource "signalfx_dashboard" "dashboard0" {
   name            = "My Team Dashboad"
   dashboard_group = signalfx_dashboard_group.dashboardgroup0.id
@@ -112,6 +140,14 @@ resource "signalfx_dashboard" "dashboard0" {
     height   = 1
     row      = 2
     column   = 6
+  }
+
+  chart {
+    chart_id = signalfx_heatmap_chart.latencyheatmap0.id
+    width = 12
+    height = 1
+    row = 3
+    column = 0
   }
 
 }
