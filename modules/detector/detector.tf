@@ -1,7 +1,7 @@
 # Easily trigger this detector by changing the signal to be > 200 3s and applying to Terraform engine
 resource "signalfx_detector" "transaction_latency" {
 
-  name        = "TSJ Tokyo Datacenter Transaction Latency"
+  name        = "${var.sfx_prefix} TSJ Tokyo Datacenter Transaction Latency"
   description = "Transaction Latency From Tokyo Datacenter"
   max_delay   = 30
   tags        = ["app-backend", "staging"]
