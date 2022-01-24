@@ -3,7 +3,3 @@ variable "sfx_prefix" {
   description = "Dashboard Prefix"
 }
 
-variable "clusters" {
-  default = ["clusterA", "clusterB"]
-}
-
