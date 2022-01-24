@@ -8,7 +8,7 @@ resource "signalfx_detector" "transaction_latency" {
 
   program_text = <<-EOF
         signal = data('demo.trans.latency', filter=filter('demo_datacenter', 'Tokyo'), rollup='average').mean(by=['demo_datacenter'])
-        detect(when(signal > 300, '10s')).publish('Transaction Latency High in Tokyo Datacenter')
+        detect(when(signal > 215, '10s')).publish('Transaction Latency High in Tokyo Datacenter')
     EOF
   rule {
     description   = "maximum > 215 for 5s"
