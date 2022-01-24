@@ -4,7 +4,7 @@ This repo is a quick example of the possibilities of integrating Splunk Observab
 
 ## Create all the Things
 ### Install Terraform (optional)
-To try out the examples in here, it's easiest to install and run the Terrafom binary locally. Instructions to get started are [here](https://learn.hashicorp.com/tutorials/terraform/install-cli).  If you know what you're doing and have access to an on-premise or cloud deployment of Terraform, feel free to use that.
+To try out the examples in here, it's easiest to install and run the Terraform binary locally. Instructions to get started are [here](https://learn.hashicorp.com/tutorials/terraform/install-cli).  If you know what you're doing and have access to an on-premise or cloud deployment of Terraform, feel free to use that.
 
 ### Grab your `realm` and `access_token` for your instance of Observability Cloud.
 * Your realm can be found in the URL that's used to connect to Observability.  It will likely be `us0` or `us1`.  In the example `https://app.us1.signalfx.com/#/home`, the realm is `us1`.
