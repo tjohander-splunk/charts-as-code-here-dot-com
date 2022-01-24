@@ -33,3 +33,6 @@ Specific sections of interest to the resources here are:
 * [Detectors](https://api.{REALM}.signalfx.com/v2/detector)
 * [Charts](https://dev.splunk.com/observability/reference/api/charts/latest#endpoint-create-single-chart)
 * [Notifications](https://dev.splunk.com/observability/reference/api/detectors/latest#endpoint-create-single-detector) _Expand the "rules" section, then expand the "notifications" section. From there, select OpsGenie Alert Notification for specifics on sending your alerts to OpsGenie._
+
+### SignalFlow Reference Documentation
+Charts plots and Detectors are built using SignalFlow, the statistical engine that powers Splunk observability Cloud.  It's incredibly powerful and therefore some background on how it works can be helpful when defining how a Chart or Detector is built.  Reference to its syntax is [here](https://dev.splunk.com/observability/docs/signalflow/).
